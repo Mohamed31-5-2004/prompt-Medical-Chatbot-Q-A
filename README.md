@@ -1,4 +1,126 @@
 # Medical-Chatbot-Using-NLP: Overview
+
+# Setup and Execution Steps for Medical-Chatbot-Using-NLP
+
+Follow these steps to set up and run the Medical Chatbot on your local machine.
+
+---
+
+## 1. Prerequisites
+
+- **Python 3.7+**
+- **pip** (Python package manager)
+- **Git** (to clone the repository)
+- **(Optional) GPU support** for faster NLP model processing
+
+---
+
+## 2. Clone the Repository
+
+```bash
+git clone https://github.com/Vaibhav0407/Medical-Chatbot-Using-NLP.git
+cd Medical-Chatbot-Using-NLP
+```
+
+---
+
+## 3. Install Required Python Packages
+
+It is recommended to use a virtual environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
+
+Then install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+If `requirements.txt` is not present, manually install the main dependencies:
+
+```bash
+pip install flask spacy transformers fuzzywuzzy scikit-learn
+```
+
+---
+
+## 4. Download and Set Up spaCy Model
+
+The project uses spaCy's English model for symptom extraction.
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+---
+
+## 5. Prepare Data Files
+
+- Ensure `Untitled-1.json` (or your diseases data JSON file) is present in the project directory.
+- If needed, update the file path in the code to match your dataset location.
+
+---
+
+## 6. Run the Application
+
+Start the Flask server:
+
+```bash
+python app.py
+```
+or, if the main file is named differently, replace with the appropriate filename.
+
+---
+
+## 7. Access the Chatbot
+
+Once the server is running, open your web browser and navigate to:
+
+```
+http://127.0.0.1:5000/
+```
+
+You should see the chatbot interface.
+
+---
+
+## 8. Interact with the Chatbot
+
+- Enter your medical queries or symptoms in the text field.
+- The chatbot will process your input and reply with relevant medical information, possible conditions, and advice.
+
+---
+
+## 9. Stopping the Server
+
+Press `Ctrl+C` in the terminal to stop the Flask server.
+
+---
+
+## 10. (Optional) Model Training
+
+If you wish to retrain the NER or QA models:
+- Prepare your dataset.
+- Update and run the relevant scripts (`train_ner.py`, `train_qa.py`, etc.) as provided in the repository.
+
+---
+
+## Troubleshooting
+
+- **ModuleNotFoundError:** Make sure all dependencies are installed and your virtual environment is activated.
+- **Port Already in Use:** If port 5000 is busy, change the port in `app.py` (`app.run(port=YOUR_PORT)`).
+- **Data File Not Found:** Check that all required data files (e.g., `Untitled-1.json`) are present and paths are correct.
+
+---
+
+## Notes
+
+- This chatbot provides preliminary information and is not a substitute for professional medical advice.
+- For deployment, consider using a production server (e.g., Gunicorn) and securing sensitive data.
+
 Purpose
 This project implements a chatbot designed to assist users with medical queries. It uses natural language processing (NLP) techniques to understand user input about symptoms, extract relevant medical information, and suggest possible diseases or conditions. It also provides explanations about diseases, symptoms, causes, treatments, and preventive measures.
 
